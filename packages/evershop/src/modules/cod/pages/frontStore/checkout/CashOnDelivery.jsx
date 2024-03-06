@@ -116,5 +116,5 @@ export default function CashOnDeliveryMethod() {
 
 export const layout = {
   areaId: 'checkoutPaymentMethodcod',
-  sortOrder: 10
+  sortOrder: 20
 };

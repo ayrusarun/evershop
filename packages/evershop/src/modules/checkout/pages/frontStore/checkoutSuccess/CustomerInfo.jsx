@@ -10,6 +10,7 @@ export default function CustomerInfo({
     customerFullName,
     customerEmail,
     paymentMethodName,
+    paymentStatus,
     shippingAddress,
     billingAddress
   }
@@ -73,6 +74,11 @@ export default function CustomerInfo({
                 <h3>{_('Payment Method')}</h3>
               </div>
               <div className="text-textSubdued">{paymentMethodName}</div>
+
+              <div className="mb-075">
+                <h3>{_('Payment Status')}</h3>
+              </div>
+              <div className="text-textSubdued">{paymentStatus?.name}</div>
             </div>
             <div>
               <div className="mb-075">
@@ -96,6 +102,9 @@ CustomerInfo.propTypes = {
     customerFullName: PropTypes.string,
     customerEmail: PropTypes.string.isRequired,
     paymentMethodName: PropTypes.string.isRequired,
+    paymentStatus: PropTypes.shape({
+      name: PropTypes.string
+    }),
     shippingAddress: PropTypes.shape({
       fullName: PropTypes.string,
       postcode: PropTypes.string,
@@ -142,6 +151,9 @@ export const query = `
       orderNumber
       customerFullName
       customerEmail
+      paymentStatus {
+        name
+      }
       paymentMethodName
       shippingAddress {
         fullName

@@ -2,6 +2,7 @@ import { _ } from '@evershop/evershop/src/lib/locale/translate';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ProductNoThumbnail from '@components/common/ProductNoThumbnail';
+import Badge from '@components/common/Badge';
 
 export default function Order({ order }) {
   return (
@@ -48,6 +49,29 @@ export default function Order({ order }) {
           <div className="order-total-value font-bold">
             {_('Total')}:{order.grandTotal.text}
           </div>
+
+          <div>
+            <div className="order-total-value font-bold">
+              {_('Shipment Status')}
+            </div>
+            <div>
+            <Badge
+                title={order.shipmentStatus.name}
+                variant={order.shipmentStatus.code}
+                progress={order.shipmentStatus.badge}
+              />
+            </div>
+          </div>
+          <div>
+            <div className="order-total-value font-bold">{_('Payment Status')}</div>
+            <div>
+            <Badge
+              title={order.paymentStatus.name}
+              variant={order.paymentStatus.code}
+              progress={order.paymentStatus.badge}
+              />
+            </div>        
+          </div>
         </div>
       </div>
     </div>
@@ -59,6 +83,16 @@ Order.propTypes = {
     createdAt: PropTypes.shape({
       text: PropTypes.string.isRequired
     }),
+    shipmentStatus: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          code: PropTypes.string.isRequired,
+          badge: PropTypes.string.isRequired
+        }),
+        paymentStatus: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          code: PropTypes.string.isRequired,
+          badge: PropTypes.string.isRequired
+        }),
     grandTotal: PropTypes.shape({
       text: PropTypes.string.isRequired
     }),

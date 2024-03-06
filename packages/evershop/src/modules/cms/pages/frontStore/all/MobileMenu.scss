@@ -15,7 +15,7 @@
     left: -2.5rem; /* Adjusted from right to left */
     padding: 2.5rem;
     width: 100vw;
-    background-color: #fff;
+    background-color: var(--MobileMenuBackground);
     z-index: 1000;
     .nav-item {
       padding: 1.5rem 0;
@@ -28,7 +28,7 @@
         border-bottom: none;
       }
       a {
-        color: var(--primary);
+        color: var(--MobileMenuItemsColor);
         font-size: 1.6rem;
       }
     }

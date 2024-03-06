@@ -53,6 +53,31 @@
       }
     }
   }
+
+  &.paid {
+    color: #aee9d1;
+    background-color: #00a434;
+    .progress {
+      background-color: #007f5f;
+      border-color: #007f5f;
+      span {
+        border-color: inherit;
+      }
+    }
+  }
+
+  &.pending {
+    color: #ffffff;
+    background-color: #fdc704;
+    .progress {
+      background-color: #007f5f;
+      border-color: #007f5f;
+      span {
+        border-color: inherit;
+      }
+    }
+  }
+
   &.info {
     color: #a4e8f2;
     background-color: #a4e8f2;

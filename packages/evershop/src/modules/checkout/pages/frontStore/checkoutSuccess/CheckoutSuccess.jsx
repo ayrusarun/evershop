@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Area from '@components/common/Area';
 import './CheckoutSuccess.scss';
 import ReviewPopup from './ReviewPopup';
 
 export default function CheckoutSuccessPage() {
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsPopupOpen(true);
+    }, 2500); // Delay time in milliseconds (e.g., 2000ms = 2 seconds)
+
+    // Clean up the timeout if the component unmounts before the delay
+    return () => clearTimeout(timeout);
+  }, []);
 
   const closePopup = () => {
     setIsPopupOpen(false);

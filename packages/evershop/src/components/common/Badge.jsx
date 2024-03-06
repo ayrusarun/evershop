@@ -14,7 +14,9 @@ export default function Badge({
     'attention',
     'critical',
     'warning',
-    'new'
+    'new',
+    'paid',
+    'pending'
   ].includes(variant)
     ? `${variant}`
     : 'default';
@@ -46,6 +48,8 @@ Badge.propTypes = {
     'attention',
     'critical',
     'warning',
-    'new'
+    'new',
+    'paid',
+    'pending'
   ]).isRequired
 };

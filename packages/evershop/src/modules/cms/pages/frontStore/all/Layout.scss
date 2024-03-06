@@ -17,6 +17,13 @@
   --text: #202223;
   --formFieldBorder: #c9cccf;
   --formFieldBorderShadow: #aeb4b9;
+
+  // MobileMenu icon colors
+  --MobileMenu: rgb(255, 255, 255);
+  --MobileMenuBackground: rgb(255, 255, 255);
+  --MobileMenuItemsColor: var(--primary);
+
+  --UserIconColor: rgb(255, 255, 255);
 }
 
 $font-size-sm: 1.4rem;
@@ -180,7 +187,7 @@ h6 {
   min-height: calc(100vh - 50px);
 }
 .header {
-  color: white;
+  color: rgb(255, 255, 255);
   background-color: var(--primary);
   padding: 2.5rem;
   border-bottom: 1px solid #dcdada;
