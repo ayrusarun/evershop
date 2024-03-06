@@ -1,7 +1,6 @@
 import React from 'react';
 import Area from '@components/common/Area';
-import Loader from '@components/common/Loader';
-
+import LoadingBar from '@components/common/LoadingBar';
 import './Layout.scss';
 import './tailwind.scss';
 
@@ -14,7 +13,8 @@ export default function Layout() {
 
   return (
     <>
-      <Loader />
+      <LoadingBar />
+      
       <div className="header flex justify-between">
         <Area
           id="header"
