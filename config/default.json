@@ -7,13 +7,6 @@
     "testDisplayname": "testPayment"
   },
   "system": {
-    "razorpay": {
-      "status": 1,
-      "publishableKey":"rzp_test_kHdNiPyFMmxssi",
-      "secretKey":"2Jr2iPlawaR6WPPhTaKhMKA7",
-      "endpointSecret":"webhookendpointsecret"
-
-    },
     "extensions": [
       {
         "name": "product_review",
