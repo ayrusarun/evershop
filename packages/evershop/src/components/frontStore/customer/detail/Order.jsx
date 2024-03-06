@@ -50,28 +50,33 @@ export default function Order({ order }) {
             {_('Total')}:{order.grandTotal.text}
           </div>
 
-          <div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             <div className="order-total-value font-bold">
               {_('Shipment Status')}
             </div>
-            <div>
-            <Badge
+            <div style={{ marginLeft: '0.5rem' }}>
+              <Badge
                 title={order.shipmentStatus.name}
                 variant={order.shipmentStatus.code}
                 progress={order.shipmentStatus.badge}
               />
             </div>
           </div>
-          <div>
-            <div className="order-total-value font-bold">{_('Payment Status')}</div>
-            <div>
-            <Badge
-              title={order.paymentStatus.name}
-              variant={order.paymentStatus.code}
-              progress={order.paymentStatus.badge}
+
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="order-total-value font-bold">
+              {_('Payment Status')}
+            </div>
+            <div style={{ marginLeft: '0.8rem' }}>
+              <Badge
+                title={order.paymentStatus.name}
+                variant={order.paymentStatus.code}
+                progress={order.paymentStatus.badge}
               />
-            </div>        
+            </div>
           </div>
+
+          
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import Area from '@components/common/Area';
 import LoadingBar from '@components/common/LoadingBar';
+import Loader from '@components/common/Loader';
 import './Layout.scss';
 import './tailwind.scss';
-import Chatbot from './Chatbot';
 
 export default function Layout() {
   // Define your message variable
@@ -14,7 +14,7 @@ export default function Layout() {
 
   return (
     <>
-      <LoadingBar />
+      <Loader />
       <div className="header flex justify-between">
         <Area
           id="header"
@@ -50,8 +50,6 @@ export default function Layout() {
       >
         <i className="fa fa-whatsapp whatsapp-icon" />
       </a>
-
-      <Chatbot /> 
        
     </>
   );

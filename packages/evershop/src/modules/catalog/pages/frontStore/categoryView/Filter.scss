@@ -56,7 +56,7 @@ input[type='range']::-webkit-slider-thumb {
 input[type='range']::-webkit-slider-runnable-track {
   width: 200px;
   height: 1px;
-  background: #003d7c;
+  background: var(--primary);
 }
 input[type='range']:nth-child(2)::-webkit-slider-runnable-track {
   background: none;
@@ -67,7 +67,7 @@ input[type='range']::-webkit-slider-thumb {
   width: 15px;
   margin-top: -7px;
   background: #fff;
-  border: 1px solid #003d7c;
+  border: 1px solid var(--primary);
   border-radius: 25px;
   z-index: 1;
 }
@@ -99,25 +99,29 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 35px;
-  height: 35px;
+  width: 60px;
+  height: 60px;
 }
 
 .filter-opener,
 .filter-closer {
   z-index: 998;
-  background: #fff;
-  border-radius: 50%;
+  background: var(--primary);
+  border-radius: 10%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   justify-content: center;
   align-items: center;
   svg {
     width: 20px;
     height: 20px;
+    stroke: white;
   }
 }
 
 @media (max-width: 639px) {
+  .product-filter-tool {
+    margin-top: 9rem;
+  }
   .product-filter-tool.opening {
     display: block;
     position: fixed;

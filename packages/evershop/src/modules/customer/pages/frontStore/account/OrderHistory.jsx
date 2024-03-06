@@ -11,10 +11,12 @@ export default function OrderHistory({ customer: { orders = [] } }) {
           {_('You have not placed any orders yet')}
         </div>
       )}
-      {orders.map((order) => (
-        <div className="order-history-order border-divider py-2">
-          <Order order={order} key={order.orderId} />
-        </div>
+      {orders
+        .sort((a, b) => b.orderId - a.orderId)
+        .map((order) => (
+          <div className="order-history-order border-divider py-2" key={order.orderId}>
+            <Order order={order} />
+          </div>
       ))}
     </div>
   );
