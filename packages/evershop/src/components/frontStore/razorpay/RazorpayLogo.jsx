@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function RazorpayLogo() {
   return (
     <img
@@ -8,7 +9,7 @@ function RazorpayLogo() {
       width="100"
       height="100"
     />
-  );
+  ); 
 }
 
 export default RazorpayLogo;
