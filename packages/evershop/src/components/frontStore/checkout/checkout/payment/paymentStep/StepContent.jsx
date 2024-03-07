@@ -125,16 +125,15 @@ export function StepContent({
         {paymentMethods && paymentMethods.length > 0 && (
           <>
             <div className="divide-y border rounded border-divider px-2 mb-2">
-              {paymentMethods.map((method) => (
-                <div
-                  key={method.code}
-                  className="border-divider payment-method-list"
-                >
-                  <div className="py-2">
-                    <Area id={`checkoutPaymentMethod${method.code}`} />
-                  </div>
+            {paymentMethods
+            .sort((a, b) => b.code.localeCompare(a.code)) // Sort in descending order based on code
+            .map((method) => (
+              <div key={method.code} className="border-divider payment-method-list">
+                <div className="py-2">
+                  <Area id={`checkoutPaymentMethod${method.code}`} />
                 </div>
-              ))}
+              </div>
+            ))}
             </div>
             <Field
               type="hidden"

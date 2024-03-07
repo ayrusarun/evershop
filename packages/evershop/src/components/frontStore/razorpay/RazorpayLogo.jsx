@@ -4,10 +4,10 @@ import React from 'react';
 function RazorpayLogo() {
   return (
     <img
-      src='/razorpay-icon.png'
+      src='/online-payment.png'
       alt="Razorpay Logo"
-      width="100"
-      height="100"
+      width="200"
+      height="200"
     />
   ); 
 }
