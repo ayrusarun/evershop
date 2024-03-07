@@ -1,7 +1,5 @@
 import ProductList from '@components/frontStore/catalog/product/list/List';
 import React from 'react';
-import PropTypes from 'prop-types';
-
 
 export default function Collections({ collections }) {
   if (!collections || collections.length === 0) {
@@ -22,42 +20,6 @@ export default function Collections({ collections }) {
     </div>
   );
 }
-
-Collections.propTypes = {
-  collections: PropTypes.shape({
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        uuid: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        products: PropTypes.shape({
-          items: PropTypes.arrayOf(
-            PropTypes.shape({
-              productId: PropTypes.number.isRequired,
-              sku: PropTypes.string.isRequired,
-              name: PropTypes.string.isRequired,
-              price: PropTypes.shape({
-                regular: PropTypes.shape({
-                  value: PropTypes.number.isRequired,
-                  text: PropTypes.string.isRequired,
-                }).isRequired,
-                special: PropTypes.shape({
-                  value: PropTypes.number.isRequired,
-                  text: PropTypes.string.isRequired,
-                }).isRequired,
-              }).isRequired,
-              image: PropTypes.shape({
-                alt: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-              }).isRequired,
-              url: PropTypes.string.isRequired,
-            }).isRequired
-          ).isRequired,
-        }).isRequired,
-      }).isRequired
-    ).isRequired,
-  }).isRequired,
-};
-
 
 export const layout = {
   areaId: 'content',

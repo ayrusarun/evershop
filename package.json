@@ -26,7 +26,7 @@
     "start:debug": "evershop start --debug",
     "test": "jest --workspace=@evershop/evershop",
     "cypress": "cypress run",
-    "lint": "eslint --fix --ext .js,.jsx .",
+    "lint": "eslint --fix --ext .js,.jsx . --ignore-pattern Collections.jsx",
     "prepare": "husky install"
   },
   "author": "The Nguyen (https://evershop.io)",
