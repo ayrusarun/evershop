@@ -35,7 +35,7 @@ export default function MainBanner() {
         <div className="overlay absolute top-0 left-0 bottom-0 right-0 block bg-gray-700 opacity-35 z-1" />
 
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-2">
-          <div className="banner-bg" style={{ transform: `translateY(-${scrollPos * 0.5}px)` }}>
+          <div className="banner-bg" style={{ transform: `translateY(-${scrollPos * 0.3}px)` }}>
             {/* Background image or video */}
           </div>
           <div className="text-center md:text-left px-2 banner-content" style={{ transform: `translateY(${scrollPos * 0.3}px)` }}>
