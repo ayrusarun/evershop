@@ -66,14 +66,13 @@
   }
   .add-cart-popup-button {
     display: block;
-    background-color: #fff;
-    color: #3a3a3a;
+    background-color: var(--primary);
+    color: #ffffff;
     border: 1px solid #3a3a3a;
     border-radius: 2px;
     padding: 12px 18px;
     font-size: 13px;
     width: 100%;
-    background-color: #fff;
     box-shadow: none;
     text-align: center;
     margin-bottom: 1rem;

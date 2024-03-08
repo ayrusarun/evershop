@@ -10,7 +10,7 @@ export default function Collections({ collections }) {
       <div className="page-width">
         { collections.items.map(collection => (
           <div key={collection.uuid}>
-            <h3 className="mt-3 mb-3 text-center uppercase h5 tracking-widest">
+            <h3 id={collection.code} className="mt-3 mb-3 text-center uppercase h5 tracking-widest">
               {collection.name}
             </h3>
             <ProductList products={collection.products.items} countPerRow={4} />
@@ -30,6 +30,7 @@ export const query = `
   query {
     collections {
       items {
+        code
         uuid
         name
         products(filters: [{key: "limit", operation: "=", value: "20"}]) {
