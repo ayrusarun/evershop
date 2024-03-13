@@ -78,6 +78,7 @@ exports.addDefaultMiddlewareFuncs = function addDefaultMiddlewareFuncs(
           }),
     secret: cookieSecret,
     cookie: {
+      domain: `.krystaltouch.in`,
       maxAge: 24 * 60 * 60 * 1000
     },
     resave: getConfig('system.session.resave', false),

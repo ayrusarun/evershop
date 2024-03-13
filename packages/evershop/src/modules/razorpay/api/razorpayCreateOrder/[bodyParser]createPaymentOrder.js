@@ -37,7 +37,7 @@ module.exports = async (request, response, delegate, next) => {
       razorpayKeySecret = razorpayConfig.keySecret;
     } else {
       razorpayKeyId = await getSetting('razorpayPublishableKey', '');
-      razorpayKeySecret = await getSetting('razorpaySecretKey', '');
+      razorpayKeySecret = await getSetting('razorpayDislayName', '');
     }
 
     const razorpay = new Razorpay({
@@ -54,7 +54,7 @@ module.exports = async (request, response, delegate, next) => {
       receipt: order_id, 
       payment_capture: 1,
       notes: {
-        orderId: order.shipping_note
+        orderId: order.order_id
       }
     };
 
