@@ -11,6 +11,7 @@ const {
   getConnection
 } = require('@evershop/evershop/src/lib/postgres/connection');
 const { getConfig } = require('@evershop/evershop/src/lib/util/getConfig');
+const { getSetting } = require('../../../setting/services/setting');
 const { emit } = require('@evershop/evershop/src/lib/event/emitter');
 const { debug } = require('@evershop/evershop/src/lib/log/debuger');
 const crypto = require('crypto');
@@ -36,9 +37,16 @@ module.exports = async (request, response, delegate, next) => {
 
     // Razorpay Configuration
     const razorpayConfig = getConfig('system.razorpay', {});
-    const {razorpayEndpointSecret} = razorpayConfig;
 
-    const isValidSignature = verifySignature(JSON.stringify(request.body), signature, razorpayEndpointSecret );
+    let razorpayEndpointSecret;
+
+    if ( razorpayConfig.razorpayEndpointSecret) {
+      razorpayEndpointSecret = razorpayConfig.razorpayEndpointSecret;
+    }else {
+      razorpayEndpointSecret = await getSetting('razorpayEndpointSecret', '');
+    } 
+    
+    const isValidSignature = verifySignature(request.body, signature, razorpayEndpointSecret );
     if (!isValidSignature) {
       return response.status(400).send('Invalid signature');
     }
@@ -47,7 +55,7 @@ module.exports = async (request, response, delegate, next) => {
     switch (event.event) {
       case 'payment.captured': {
         const payment = event.payload.payment.entity;
-        const {orderId} = payment.notes;
+        const orderId = payment.notes.orderId;
         
         // Load the order
         const order = await select()
