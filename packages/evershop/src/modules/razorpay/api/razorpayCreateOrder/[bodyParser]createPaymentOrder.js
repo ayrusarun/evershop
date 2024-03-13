@@ -54,7 +54,7 @@ module.exports = async (request, response, delegate, next) => {
       receipt: order_id, 
       payment_capture: 1,
       notes: {
-        orderId: order.order_id
+        orderId: order_id
       }
     };
 
