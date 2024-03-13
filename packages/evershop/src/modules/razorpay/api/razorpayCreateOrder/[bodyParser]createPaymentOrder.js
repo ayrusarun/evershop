@@ -37,7 +37,7 @@ module.exports = async (request, response, delegate, next) => {
       razorpayKeySecret = razorpayConfig.keySecret;
     } else {
       razorpayKeyId = await getSetting('razorpayPublishableKey', '');
-      razorpayKeySecret = await getSetting('razorpayDislayName', '');
+      razorpayKeySecret = await getSetting('razorpaySecretKey', '');
     }
 
     const razorpay = new Razorpay({
