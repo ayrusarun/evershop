@@ -13,8 +13,7 @@ export default function Layout() {
 
   return (
     <>
-      <LoadingBar />
-      
+      <LoadingBar />    
       <div className="header flex justify-between">
         <Area
           id="header"

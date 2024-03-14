@@ -1,7 +1,87 @@
-.main-menu {
-  .nav-link {
-    font-size: 1.6rem;
-    font-weight: 300;
-    line-height: 2rem;
+.menu {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    li {
+      position: relative;
+      z-index: 1;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        display: block;
+        padding: 10px;
+        color: white; /* Change color of main menu item */
+        text-decoration: none;
+        transition: color 0.3s; /* Smooth transition for color change */
+
+        &:hover {
+          border-radius: 5px;
+          
+        }
+      }
+
+      ul {
+        position: absolute;
+        top: calc(100%); /* Adjust the gap between parent and child submenu */
+        left: 10;
+        background-color: #ffffff;
+        display: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 2; /* Ensure submenu appears above parent menu items */
+        transition: opacity 0.3s ease, width 0.3s ease, border-radius 0.3s ease; /* Smooth transition for submenu opacity, width, and border-radius */
+
+        li {
+          width: 220px; /* Increase width of dropdown list */
+          white-space: nowrap;
+          transition: all 0.3s ease; /* Smooth transition for submenu items */
+
+          a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+
+            &:hover {
+              color: var(--primary); /* Maintain white color on hover */
+              background-color: #f0f0f0; /* Background color for dropdown list item on hover */
+            }
+          }
+
+          ul {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            display: none;
+            transition: opacity 0.3s ease; /* Smooth transition for submenu opacity */
+      
+          }
+        }
+      }
+
+      /* Keep submenu visible when hovering over it or its parent */
+      &:hover > ul {
+        display: block;
+        opacity: 1;
+        width: 220px; /* Adjust the width of the dropdown list */
+        border-radius: 5px; /* Add rounded edges to the dropdown area */
+      }
+
+      /* Apply rounded edges to submenu items on hover */
+      ul li {
+        border-radius: 5px; /* Maintain rounded edges on hover */
+      }
+
+      /* Hide submenu after a delay when not hovering over parent or submenu */
+      ul {
+        opacity: 0;
+        transition-delay: 0.3s; /* Adjust the delay as needed */
+      }
+    }
   }
 }
