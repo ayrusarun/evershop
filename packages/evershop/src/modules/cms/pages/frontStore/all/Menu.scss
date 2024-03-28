@@ -8,14 +8,16 @@
     li {
       position: relative;
       z-index: 1;
+      margin-right: 30px;
 
       &:last-child {
         margin-right: 0;
       }
 
       a {
+        font-size: 15px;
         display: block;
-        padding: 10px;
+        padding-bottom: 10px;
         color: white; /* Change color of main menu item */
         text-decoration: none;
         transition: color 0.3s; /* Smooth transition for color change */
