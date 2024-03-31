@@ -88,7 +88,14 @@ function Footer({ themeConfig: { copyRight } }) {
           </div>
         </div>
         <div className="self-center">
-          <div className="copyright text-center md:text-right text-textSubdued">
+          
+          <div className="copyright text-center md:text-right">
+          <ul>
+            <li><a href="/page/terms">Terms and Conditions</a></li>
+            <li><a href="/page/policy">Privacy Policy</a></li>
+            <li><a href="/page/contact">Contact Us</a></li>
+            <li><a href="/page/refund-policy">Refund Policy</a></li>
+          </ul>
             <span>{copyRight}</span>
           </div>
         </div>
