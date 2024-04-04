@@ -19,7 +19,7 @@ export default function FeaturedCategories() {
 
         <div>
           <div className="text-left" style={{ position: 'relative' }}>
-            <a href="/necklace">
+            <a href="/18k-gold/necklace">
               <div className="image-container">
                 <img src="./FeaturedCategories/necklace.png" alt="" />
                 <div className="overlay">NECKLACE</div>
@@ -30,7 +30,7 @@ export default function FeaturedCategories() {
 
         <div>
           <div className="text-left" style={{ position: 'relative' }}>
-            <a href="/earrings">
+            <a href="/18k-gold/earrings">
               <div className="image-container">
                 <img src="./FeaturedCategories/earrings.png" alt="" />
                 <div className="overlay">EARRINGS</div>
@@ -41,7 +41,7 @@ export default function FeaturedCategories() {
 
         <div>
           <div className="text-left" style={{ position: 'relative' }}>
-            <a href="/braclets">
+            <a href="/18k-gold/braclets">
               <div className="image-container">
                 <img src="./FeaturedCategories/braclets.png" alt="" />
                 <div className="overlay">BRACELETS</div>
