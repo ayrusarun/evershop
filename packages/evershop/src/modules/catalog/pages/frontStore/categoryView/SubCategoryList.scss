@@ -1,29 +1,25 @@
-// General.scss
-
 .category__children-scroll {
   overflow-x: auto;
   white-space: nowrap;
-  display: flex;
-  justify-content: center; // Align center horizontally
   padding: 10px 0; // Add padding to the top and bottom for spacing
-
-  ::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
+  display: flex;
+  justify-content: flex-start; // Start from the left by default
 }
 
 .category__children {
   display: flex;
+  margin-left: auto; // Push the children to the left by default
+}
+
+@media (min-width: 320px) { // Adjust the breakpoint as needed
+  .category__children-scroll {
+    justify-content: center; // Center the items if fewer than 4
+  }
+
+  .category__children {
+    margin-left: auto; // Push the children to the left if fewer than 4
+    margin-right: auto; // Push the children to the right if fewer than 4
+  }
 }
 
 .category__child {
@@ -39,7 +35,7 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid #707070; // Black border
+  border: 2px solid #8a8a8a; // Black border
 }
 
 .category__child-placeholder {
@@ -47,7 +43,7 @@
   height: 80px;
   border-radius: 50%;
   background-color: #fff;
-  border: 1px solid #707070; // Black border for placeholder
+  border: 2px solid #8a8a8a; // Black border for placeholder
 }
 
 .category__child-name {
