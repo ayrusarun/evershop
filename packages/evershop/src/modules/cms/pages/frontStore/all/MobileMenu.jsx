@@ -4,10 +4,43 @@ import './MobileMenu.scss';
 
 export default function MobileMenu({ menu: { items } }) {
   const [activeMenu, setActiveMenu] = React.useState(null);
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
   const toggleSubMenu = (index) => {
-    setActiveMenu(activeMenu === index ? 0 : index);
+    setActiveMenu(activeMenu === index ? null : index);
   };  
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    setActiveMenu(null); // Close all submenus when toggling the menu
+  };
+
+  const menuIcon = menuOpen ? (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      style={{ stroke: 'var(--MobileMenu)' }}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  ) : (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      style={{ stroke: 'var(--MobileMenu)' }}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  );
 
   const renderSubMenu = (items, level = 0) => {
     return (
@@ -33,25 +66,12 @@ export default function MobileMenu({ menu: { items } }) {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setActiveMenu(activeMenu === null ? 0 : null);
+          toggleMenu();
         }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          style={{ stroke: 'var(--MobileMenu)' }}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
+        {menuIcon}
       </a>
-      {activeMenu !== null && (
+      { menuOpen && (
         <ul className="nav justify-content-center">
           {items.map((item, index) => (
             <li className="nav-item" key={index}>
@@ -89,10 +109,6 @@ export default function MobileMenu({ menu: { items } }) {
     </div>
   );
 }
-
-
-
-
 
 
 export const layout = {
