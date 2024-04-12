@@ -8,16 +8,18 @@
 
 .category__children {
   display: flex;
-  margin-left: auto; // Push the children to the left by default
+  justify-content: flex-start; // Start from the left
+  align-items: center; // Center children vertically
 }
 
 @media (min-width: 320px) { // Adjust the breakpoint as needed
   .category__children-scroll {
     justify-content: center; // Center the items if fewer than 4
+    padding: 10px 0; // Remove right padding
   }
 
   .category__children {
-    margin-left: auto; // Push the children to the left if fewer than 4
+    margin-left: 100px; // Push the children to the left if fewer than 4
     margin-right: auto; // Push the children to the right if fewer than 4
   }
 }
@@ -35,7 +37,7 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #8a8a8a; // Black border
+  border: 1px solid #8a8a8a; // Black border
 }
 
 .category__child-placeholder {
@@ -43,9 +45,8 @@
   height: 80px;
   border-radius: 50%;
   background-color: #fff;
-  border: 2px solid #8a8a8a; // Black border for placeholder
+  border: 1px solid #8a8a8a; // Black border for placeholder
 }
-
 .category__child-name {
   margin-top: 5px; // Adjust as needed
   text-align: center;
