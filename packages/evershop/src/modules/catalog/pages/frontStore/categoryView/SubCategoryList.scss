@@ -1,0 +1,57 @@
+// General.scss
+
+.category__children-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center; // Align center horizontally
+  padding: 10px 0; // Add padding to the top and bottom for spacing
+
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+}
+
+.category__children {
+  display: flex;
+}
+
+.category__child {
+  margin-right: 10px;
+  text-decoration: none; // Remove default underline from links
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category__child-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #000; // Black border
+}
+
+.category__child-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #000; // Black border for placeholder
+}
+
+.category__child-name {
+  margin-top: 5px; // Adjust as needed
+  text-align: center;
+  display: block; // Ensure the text is displayed as a block element
+}
