@@ -3,7 +3,28 @@ import React from 'react';
 import './MobileMenu.scss';
 
 export default function MobileMenu({ menu: { items } }) {
-  const [show, setShow] = React.useState(false);
+  const [activeMenu, setActiveMenu] = React.useState(null);
+
+  const toggleSubMenu = (index) => {
+    setActiveMenu(activeMenu === index ? 0 : index);
+  };  
+
+  const renderSubMenu = (items, level = 0) => {
+    return (
+      <ul className={`sub-menu level-${level}`}>
+        {items.map((item, index) => (
+          <li className="snav-item" key={index}>
+            <a
+              className="nav-link"
+              href={item.url}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
+  };
 
   return (
     <div className="main-menu-mobile self-center">
@@ -12,7 +33,7 @@ export default function MobileMenu({ menu: { items } }) {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setShow(!show);
+          setActiveMenu(activeMenu === null ? 0 : null);
         }}
       >
         <svg
@@ -20,7 +41,7 @@ export default function MobileMenu({ menu: { items } }) {
           className="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
-          style={{ stroke: 'var(--MobileMenu)' }} 
+          style={{ stroke: 'var(--MobileMenu)' }}
         >
           <path
             strokeLinecap="round"
@@ -30,32 +51,49 @@ export default function MobileMenu({ menu: { items } }) {
           />
         </svg>
       </a>
-      {show && (
+      {activeMenu !== null && (
         <ul className="nav justify-content-center">
-          {items.map((i, index) => (
-            // eslint-disable-next-line react/no-array-index-key
+          {items.map((item, index) => (
             <li className="nav-item" key={index}>
-              <a className="nav-link" href={i.url}>
-                {i.name}
-              </a>
+              
+              <div className="d-flex justify-content-between align-items-center">
+                <a
+                  className="nav-link"
+                  href={item.url}
+                >
+                  {item.name}
+                </a>
+                {item.children && item.children.length >= 1 && (
+                  <span className={`arrow-icon ${activeMenu === index ? 'rotate-down' : 'rotate-up'}`} 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSubMenu(index);
+                    }}
+                  >
+                    {activeMenu === index ? '+' : '+'}
+                  </span>
+                )}
+              </div>
+              
+              
+              {activeMenu === index && item.children && (
+                <ul className="sub-menu">
+                  {renderSubMenu(item.children, 1)}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
       )}
+
     </div>
   );
 }
 
-MobileMenu.propTypes = {
-  menu: PropTypes.shape({
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    ).isRequired
-  }).isRequired
-};
+
+
+
+
 
 export const layout = {
   areaId: 'header',
@@ -68,6 +106,15 @@ export const query = `
       items {
         name
         url
+        children {
+          name
+          url
+          children {
+            name
+            url
+          }
+        }
       }
     }
-}`;
+  }
+`;

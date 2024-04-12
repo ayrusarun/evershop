@@ -11,7 +11,7 @@
   }
   .nav {
     position: absolute;
-    top: 100%;
+    top: 250%;
     left: -2.5rem; /* Adjusted from right to left */
     padding: 2.5rem;
     width: 100vw;
@@ -20,17 +20,64 @@
     .nav-item {
       padding: 1.5rem 0;
       border-bottom: 1px solid var(--border);
-      &:first {
+      &:first-child {
         padding-top: 0;
       }
-      &.last {
+      &:last-child  {
         padding-bottom: 0;
         border-bottom: none;
+      }
+
+      .arrow-icon {
+        font-size: 25px;
+        transition: transform 0.3s ease; /* Add transition for smooth transformation */
+      }
+      
+      .rotate-down {
+        transform: rotate(45deg); 
+      }
+      
+      .rotate-up {
+        transform: rotate(0deg); 
       }
       a {
         color: var(--MobileMenuItemsColor);
         font-size: 1.6rem;
       }
+
+      .arrow-icon {
+        color: var(--MobileMenuItemsColor);
+        margin-right: 30px; /* Add some space between the link and the icon */
+      }
+      
+      /* Define styles for the container div */
+      .d-flex {
+        display: flex; /* Use flexbox */
+        justify-content: space-between; /* Align items with space between them */
+        align-items: center; /* Center items vertically */
+      }
+
+      .sub-menu {
+        padding-left: 1.5rem; // Adjust indentation for subcategories
+        transition: all 0.3s ease; /* Add transition for smooth appearance */
+
+        .snav-item {
+          border-bottom: 0.5px solid rgb(199, 196, 196);
+          padding: 1rem 0;
+          
+          
+          &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+          }
+          a {
+            color: rgb(25, 25, 25); // Adjust color for subcategory items
+            font-size: 1.4rem; // Adjust font size for subcategory items
+          }
+        }
+      }
+
+
     }
   }
 }
