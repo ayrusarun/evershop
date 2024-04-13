@@ -33,11 +33,17 @@
 }
 
 .category__child-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #8a8a8a; // Black border
+  width: 80px; // Set a fixed width
+  height: 80px; // Set a fixed height
+  border-radius: 50%; // Ensure the container is a perfect circle
+  overflow: hidden; // Hide any content that overflows the container
+  border: 0.3px solid #8a8a8a; // Black border
+}
+
+.category__child-image img {
+  width: 100%; // Make the image fill the container horizontally
+  height: 100%; // Make the image fill the container vertically
+  object-fit: cover; // Ensure the image covers the entire container
 }
 
 .category__child-placeholder {
@@ -45,8 +51,9 @@
   height: 80px;
   border-radius: 50%;
   background-color: #fff;
-  border: 1px solid #8a8a8a; // Black border for placeholder
+  border: 0.3px solid #8a8a8a; // Black border for placeholder
 }
+
 .category__child-name {
   margin-top: 5px; // Adjust as needed
   text-align: center;
