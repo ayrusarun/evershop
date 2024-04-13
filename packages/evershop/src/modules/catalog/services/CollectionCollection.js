@@ -68,7 +68,7 @@ class CollectionCollection {
     // Paging
     const page = filters.find((f) => f.key === 'page') || { value: 1 };
     const limit = filters.find((f) => f.key === 'limit' && f.value > 0) || {
-      value: 20
+      value: 50
     }; // TODO: Get from the config
     currentFilters.push({
       key: 'page',
