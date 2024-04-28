@@ -6,7 +6,6 @@
     "homeUrl": "https://www.krystaltouch.in"
   },
   "system": {
-    
     "extensions": [
       {
         "name": "product_review",
@@ -19,6 +18,12 @@
         "resolve": "node_modules/@evershop/google_login",
         "enabled": true,
         "priority": 10
+      },
+      {
+        "name": "resend",
+        "resolve": "node_modules/@evershop/resend",
+        "enabled": true,
+        "priority": 10
       }
     ]
   },
@@ -28,7 +33,7 @@
   },
   "themeConfig": {
     "logo": {
-        "alt": "You amazing shop logo",
+        "alt": "KrystalTouch logo",
         "src": "/logo-kt.png",
         "width": 50,
         "height": 50
@@ -43,12 +48,32 @@
         "metas": [],
         "scripts": []
     },
-    "copyright": "© 2024 AyrusShop. All Rights Reserved."
+    "copyright": "© 2024 KrystalTouch. All Rights Reserved."
   },
   "google_login": {
     "client_id": "456482901778-obegr9i481s1blkhtbop8vsoe8vbtkgb.apps.googleusercontent.com",
     "client_secret": "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",
     "success_redirect_url": "https://www.krystaltouch.in",
     "failure_redirect_url": "https://www.krystaltouch.in/account/login"
+  },
+  "resend": {
+    "from": "support@krystaltouch.in",
+    "events": {
+      "order_placed": {
+        "subject": "Order Confirmation",
+        "enabled": true,
+        "templatePath": "packages/resend/email_template_examples/order_confirmation.html" 
+      },
+      "reset_password": {
+        "subject": "Reset Password",
+        "enabled": true,
+        "templatePath": "packages/resend/email_template_examples/reset_password.html" 
+      },
+      "customer_registered": {
+        "subject": "Welcome to KrystalTouch",
+        "enabled": true,
+        "templatePath": "packages/resend/email_template_examples/welcome.html"
+      }
+    }
   }
 }
