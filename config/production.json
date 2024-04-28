@@ -57,7 +57,7 @@
     "failure_redirect_url": "https://www.krystaltouch.in/account/login"
   },
   "resend": {
-    "from": "support@krystaltouch.in",
+    "from": "KrystalTouch <support@krystaltouch.in>",
     "events": {
       "order_placed": {
         "subject": "Order Confirmation",
